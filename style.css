@@ -96,8 +96,8 @@ body {
   background: linear-gradient(135deg,
     #F5EBD9 0%,
     var(--color-beige) 20%,
-    #D4C9B8 40%,
-    var(--color-light-river) 70%,
+    #D4C9B8 50%,
+    var(--color-light-river) 80%,
     var(--color-slate-blue) 100%);
   background-attachment: fixed;
   min-height: 100vh;
@@ -206,6 +206,7 @@ a:focus {
   flex-direction: column;
   align-items: center;
   gap: 0.1rem;
+  position: relative;
 }
 
 .site-branding {
@@ -298,16 +299,88 @@ a:focus {
   text-decoration: none;
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  background-color: var(--color-terracotta);
-  color: var(--color-white);
-  border: none;
-  padding: var(--spacing-xs) var(--spacing-sm);
+/* Mobile Menu Toggle - Show by default, hide on desktop */
+button.menu-toggle,
+.main-navigation button.menu-toggle,
+#site-navigation button.menu-toggle {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: var(--color-terracotta) !important;
+  border: none !important;
+  padding: 10px !important;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 1rem;
+  width: 44px !important;
+  height: 44px !important;
+  position: absolute !important;
+  right: var(--spacing-sm);
+  top: 25px;
+  clip: auto !important;
+  overflow: visible !important;
+}
+
+/* Hamburger icon lines */
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+button.menu-toggle:hover,
+.main-navigation button.menu-toggle:hover {
+  background-color: #B84E30 !important;
+}
+
+/* Hide hamburger on desktop/large screens */
+@media screen and (min-width: 993px) {
+  button.menu-toggle,
+  .main-navigation button.menu-toggle,
+  #site-navigation button.menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Mobile Navigation Styles */
+@media screen and (max-width: 992px) {
+  .main-navigation {
+    width: 100%;
+    position: static;
+  }
+
+  .main-navigation ul {
+    display: none !important;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+    box-shadow: var(--shadow-md);
+  }
+
+  .main-navigation.toggled ul {
+    display: flex !important;
+  }
+
+  .main-navigation li {
+    width: 100%;
+  }
+
+  .main-navigation a {
+    width: 100%;
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
 }
 
 /* ==========================================================================
@@ -625,13 +698,7 @@ label {
     margin-top: var(--spacing-sm);
   }
 
-  .main-navigation {
-    display: none;
-  }
-
-  .main-navigation.toggled {
-    display: block;
-  }
+  /* Note: .main-navigation ul is hidden in the mobile styles section above */
 
   .main-navigation ul {
     flex-direction: column;

@@ -50,15 +50,15 @@ get_header();
     ?>
 
     <!-- Meeting Information Section -->
-    <section class="meeting-info" style="background-color: var(--color-beige); padding: var(--spacing-xl) var(--spacing-sm); margin-top: var(--spacing-xl);">
+    <section class="meeting-info" style="background-color: var(--color-slate-blue); padding: var(--spacing-xl) var(--spacing-sm); border-radius: var(--radius-lg); margin-top: var(--spacing-xl);">
         <div class="container-narrow text-center">
-            <h2 style="color: var(--color-terracotta);"><?php esc_html_e( 'Join Us for Memory Café', 'ramcafe' ); ?></h2>
-            <div class="meeting-details" style="font-size: 1.25rem; line-height: 1.8; margin-top: var(--spacing-md);">
+            <h2 style="color: var(--color-beige);"><?php esc_html_e( 'Join Us for Memory Café', 'ramcafe' ); ?></h2>
+            <div class="meeting-details" style="font-size: 1.25rem; color: var(--color-beige); line-height: 1.8; margin-top: var(--spacing-md);">
                 <p><strong><?php esc_html_e( 'When:', 'ramcafe' ); ?></strong> <?php esc_html_e( 'Third Tuesday of Every Month', 'ramcafe' ); ?></p>
                 <p><strong><?php esc_html_e( 'Time:', 'ramcafe' ); ?></strong> <?php esc_html_e( '1:00 PM - 3:00 PM', 'ramcafe' ); ?></p>
                 <p><strong><?php esc_html_e( 'Location:', 'ramcafe' ); ?></strong> <?php echo esc_html( get_theme_mod( 'ramcafe_address', 'Fergus Falls YMCA' ) ); ?></p>
             </div>
-            <div style="margin-top: var(--spacing-md);">
+            <div style="margin-top: var(--spacing-md); color: var(--color-beige);">
                 <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'events' ) ) ); ?>" class="button">
                     <?php esc_html_e( 'View All Events', 'ramcafe' ); ?>
                 </a>
