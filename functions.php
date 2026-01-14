@@ -108,8 +108,11 @@ if ( ! isset( $content_width ) ) {
  * This function loads CSS and JavaScript files for the theme
  */
 function ramcafe_scripts() {
+    // Enqueue Google Fonts - Montserrat
+    wp_enqueue_style( 'ramcafe-google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap', array(), null );
+
     // Enqueue main stylesheet
-    wp_enqueue_style( 'ramcafe-style', get_stylesheet_uri(), array(), '1.0.0' );
+    wp_enqueue_style( 'ramcafe-style', get_stylesheet_uri(), array( 'ramcafe-google-fonts' ), '1.0.0' );
 
     // Enqueue custom JavaScript for navigation
     wp_enqueue_script( 'ramcafe-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0.0', true );

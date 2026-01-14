@@ -1,8 +1,8 @@
 /*
 Theme Name: Rivers Area Memory Café
-Theme URI: https://riversareamemorycafe.com
+Theme URI: https://riversareamemorycafe.org
 Author: Rivers Area Memory Café
-Author URI: https://riversareamemorycafe.com
+Author URI: https://riversareamemorycafe.org
 Description: A warm, community-focused WordPress theme for Rivers Area Memory Café featuring nature-inspired design with custom event management capabilities.
 Version: 1.0.0
 Requires at least: 6.0
@@ -45,9 +45,9 @@ Use it to make something cool, have fun, and share what you've learned.
   --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.15);
 
   /* Typography */
-  --font-primary: 'Accia Piano Bold', Georgia, serif;
-  --font-secondary: 'Deuterium Medium', Arial, sans-serif;
-  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-primary: 'Accia Piano Bold', 'Montserrat', Georgia, serif;
+  --font-secondary: 'Montserrat', 'Raleway', Arial, sans-serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
