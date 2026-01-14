@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivers Area Memory Café - Updated Theme Preview</title>
+    <style>
+        /* CSS CUSTOM PROPERTIES (Brand Colors & Typography) */
+        :root {
+            /* Brand Colors - Updated to match flyer */
+            --color-terracotta: #CE593A;
+            --color-slate-blue: #596E79;
+            --color-olive-green: #9AA37B;
+            --color-teal: #96A37B;
+            --color-beige: #EBDFCA;
+
+            /* Neutral Colors */
+            --color-white: #ffffff;
+            --color-black: #333333;
+            --color-gray-light: #f5f5f5;
+            --color-gray-medium: #666666;
+            --color-gray-dark: #444444;
+
+            /* Typography */
+            --font-primary: Georgia, serif;
+            --font-secondary: Arial, sans-serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+
+            /* Container */
+            --container-max: 1200px;
+            --container-narrow: 800px;
+
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+        }
+
+        /* RESET & BASE STYLES */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-black);
+            background-color: var(--color-white);
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: bold;
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-terracotta);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        a {
+            color: var(--color-slate-blue);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--color-terracotta);
+            text-decoration: underline;
+        }
+
+        /* LAYOUT */
+        .site {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .site-content {
+            flex: 1;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .container-narrow {
+            max-width: var(--container-narrow);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        /* HEADER */
+        .site-header {
+            background-color: var(--color-beige);
+            padding: var(--spacing-md) var(--spacing-sm);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .site-branding {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .site-logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        .site-logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .site-title {
+            font-family: var(--font-primary);
+            font-size: 1.75rem;
+            margin: 0;
+            color: var(--color-terracotta);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .site-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-description {
+            font-family: var(--font-secondary);
+            font-size: 0.875rem;
+            color: var(--color-slate-blue);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* NAVIGATION */
+        .main-navigation {
+            margin-top: var(--spacing-sm);
+        }
+
+        .main-navigation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .main-navigation li {
+            margin: 0;
+        }
+
+        .main-navigation a {
+            display: block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            color: var(--color-slate-blue);
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: background-color var(--transition-fast), color var(--transition-fast);
+        }
+
+        .main-navigation a:hover,
+        .main-navigation .current-menu-item > a {
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            text-decoration: none;
+        }
+
+        /* HERO SECTION */
+        .home-hero {
+            padding: var(--spacing-xl) var(--spacing-sm);
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .entry-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-slate-blue);
+        }
+
+        /* MEETING INFO SECTION */
+        .meeting-info {
+            background-color: var(--color-slate-blue);
+            color: var(--color-white);
+            padding: var(--spacing-xl) var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+
+        .meeting-info h2 {
+            color: var(--color-white);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .meeting-details {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-top: var(--spacing-md);
+        }
+
+        /* BUTTONS */
+        .button {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color var(--transition-fast), transform var(--transition-fast);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background-color: #b84e32;
+            color: var(--color-white);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            background-color: var(--color-beige);
+            color: var(--color-slate-blue);
+        }
+
+        .button-secondary:hover {
+            background-color: var(--color-terracotta);
+            color: var(--color-white);
+        }
+
+        /* FEATURED CONTENT SECTION */
+        .featured-content {
+            padding: var(--spacing-xl) var(--spacing-sm);
+            background-color: var(--color-beige);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .feature-box {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 3px solid var(--color-slate-blue);
+        }
+
+        .feature-box h3 {
+            color: var(--color-slate-blue);
+        }
+
+        /* LATEST NEWS SECTION */
+        .latest-news {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl) var(--spacing-sm);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .news-card {
+            background-color: var(--color-beige);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-terracotta);
+        }
+
+        .news-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .news-card h3 a {
+            color: var(--color-slate-blue);
+        }
+
+        .news-card h3 a:hover {
+            color: var(--color-terracotta);
+        }
+
+        .news-meta {
+            font-size: 0.875rem;
+            color: var(--color-terracotta);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background-color: var(--color-slate-blue);
+            color: var(--color-white);
+            padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-widget h3 {
+            color: var(--color-beige);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-widget ul li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-widget a {
+            color: var(--color-white);
+        }
+
+        .footer-widget a:hover {
+            color: var(--color-beige);
+        }
+
+        .site-info {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.875rem;
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-navigation {
+                width: 100%;
+            }
+
+            .main-navigation ul {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .site-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* PREVIEW BANNER */
+        .preview-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview-banner a {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="site">
+
+    <!-- Preview Banner -->
+    <div class="preview-banner">
+        🎨 UPDATED THEME PREVIEW - Now with slate blue accent and better logo placement
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-branding">
+                <!-- Logo SVG (matching the flyer design) -->
+                <div class="site-logo">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Arch -->
+                        <path d="M 40 160 Q 40 40, 100 40 Q 160 40, 160 160"
+                              fill="none"
+                              stroke="#596E79"
+                              stroke-width="12"/>
+                        <path d="M 55 160 Q 55 55, 100 55 Q 145 55, 145 160"
+                              fill="none"
+                              stroke="#596E79"
+                              stroke-width="12"/>
+
+                        <!-- Tree -->
+                        <line x1="100" y1="70" x2="100" y2="130" stroke="#596E79" stroke-width="8"/>
+                        <polygon points="100,60 85,75 95,75 80,90 90,90 100,70 110,90 120,90 105,75 115,75"
+                                 fill="#596E79"/>
+
+                        <!-- Waves -->
+                        <path d="M 30 170 Q 45 165, 60 170 Q 75 175, 90 170 Q 105 165, 120 170 Q 135 175, 150 170 Q 165 165, 180 170"
+                              fill="none"
+                              stroke="#596E79"
+                              stroke-width="6"/>
+                        <path d="M 30 185 Q 45 180, 60 185 Q 75 190, 90 185 Q 105 180, 120 185 Q 135 190, 150 185 Q 165 180, 180 185"
+                              fill="none"
+                              stroke="#596E79"
+                              stroke-width="6"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h1 class="site-title">
+                        <a href="#">Rivers Area<br><span style="color: var(--color-slate-blue); font-size: 1.2rem; letter-spacing: 2px;">MEMORY CAFÉ</span></a>
+                    </h1>
+                    <p class="site-description">Growing community. Celebrating connection</p>
+                </div>
+            </div>
+
+            <nav class="main-navigation">
+                <ul>
+                    <li class="current-menu-item"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="site-content">
+
+        <!-- Hero Section -->
+        <article class="home-hero">
+            <div class="hero-content container-narrow">
+                <header class="entry-header text-center">
+                    <h1>Welcome to Rivers Area Memory Café</h1>
+                </header>
+
+                <div class="entry-content">
+                    <p>Our Memory Cafe offers joy, support, and connection to those with memory challenges, care partners, and loved ones, in a welcoming space for social engagement and community building.</p>
+
+                    <p>Through a variety of enriching activities, educational workshops, and social gatherings, we are dedicated to enhancing the quality of life for those living with memory challenges and the people who support them.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Meeting Information Section -->
+        <section class="meeting-info">
+            <div class="container-narrow text-center">
+                <h2>Join Us Every Third Tuesday</h2>
+                <div class="meeting-details">
+                    <p><strong>FROM 1-3 PM AT THE FERGUS FALLS YMCA</strong></p>
+                    <p>1164 Friberg Ave, Fergus Falls, MN 56537</p>
+                </div>
+                <div style="margin-top: var(--spacing-md);">
+                    <a href="#" class="button">View All Events</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Content Section -->
+        <section class="featured-content">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: var(--spacing-lg); color: var(--color-slate-blue);">What We Offer</h2>
+
+                <div class="feature-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-box">
+                        <h3>Community Connection</h3>
+                        <p>A welcoming space for individuals with memory loss and their care partners to connect with others facing similar experiences.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-box">
+                        <h3>Engaging Activities</h3>
+                        <p>Enjoy music, art, conversation, and activities designed to promote engagement and social connection.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-box">
+                        <h3>Support & Resources</h3>
+                        <p>Access information, resources, and a supportive community that understands the journey of memory loss.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section class="latest-news">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: var(--spacing-lg); color: var(--color-slate-blue);">Upcoming Events</h2>
+
+                <div class="news-grid">
+                    <!-- News Card 1 -->
+                    <article class="news-card">
+                        <div class="news-meta">FEBRUARY 17TH</div>
+                        <h3><a href="#">Launch Day - All Are Welcome!</a></h3>
+                        <div class="news-excerpt">
+                            <p>Join us for our inaugural Memory Café gathering. Meet the team, learn what we're about, and enjoy watercolor painting!</p>
+                        </div>
+                    </article>
+
+                    <!-- News Card 2 -->
+                    <article class="news-card">
+                        <div class="news-meta">MARCH 17TH</div>
+                        <h3><a href="#">Ask Us Anything</a></h3>
+                        <div class="news-excerpt">
+                            <p>A panel of care partners and family members answer your questions. Plus musical guests and sing-along!</p>
+                        </div>
+                    </article>
+
+                    <!-- News Card 3 -->
+                    <article class="news-card">
+                        <div class="news-meta">APRIL 21ST</div>
+                        <h3><a href="#">Handling Tough Days</a></h3>
+                        <div class="news-excerpt">
+                            <p>Dr. Rob Hendrickson provides resources on living well at home with dementia. Activity: Spring is in the Air!</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center" style="margin-top: var(--spacing-lg);">
+                    <a href="#" class="button-secondary button">Visit Our Website for More Dates</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Footer Widget 1 -->
+                <div class="footer-widget">
+                    <h3>Rivers Area Memory Café</h3>
+                    <p>A gathering place of connection, learning, and support for those impacted by memory loss in our rural communities.</p>
+                </div>
+
+                <!-- Footer Widget 2 -->
+                <div class="footer-widget">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Get Involved</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Widget 3 -->
+                <div class="footer-widget">
+                    <h3>Contact</h3>
+                    <p>
+                        <strong>Email:</strong> riversareamemorycafe@gmail.com<br>
+                        <strong>Phone:</strong> (218) 998-9677<br>
+                        <strong>Location:</strong> Fergus Falls YMCA
+                    </p>
+                </div>
+            </div>
+
+            <div class="site-info">
+                <p>&copy; 2026 Rivers Area Memory Café. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
