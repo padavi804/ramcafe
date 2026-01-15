@@ -103,7 +103,7 @@ get_header();
 
                                 // Get image URL or use placeholder
                                 $image_url = '';
-                                if ( $image_id ) {
+                                if ( $image_id && is_numeric( $image_id ) ) {
                                     $image_url = wp_get_attachment_image_url( $image_id, 'large' );
                                 }
                                 ?>

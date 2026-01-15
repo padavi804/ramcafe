@@ -334,6 +334,11 @@ function ramcafe_social_links() {
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
+ * Include About page meta boxes for feature images
+ */
+require get_template_directory() . '/inc/about-page-meta-boxes.php';
+
+/**
  * Security: Remove WordPress version from head
  */
 remove_action( 'wp_head', 'wp_generator' );
@@ -578,6 +583,18 @@ function ramcafe_save_about_page_meta_box( $post_id ) {
             }
 
             update_post_meta( $post_id, $field, $value );
+        }
+    }
+
+    // Save feature images (from the Café Feature Images meta box)
+    $image_fields = array( 'feature_1_image', 'feature_2_image', 'feature_3_image' );
+
+    foreach ( $image_fields as $image_field ) {
+        if ( isset( $_POST[ $image_field ] ) && ! empty( $_POST[ $image_field ] ) ) {
+            $image_id = absint( $_POST[ $image_field ] );
+            update_post_meta( $post_id, $image_field, $image_id );
+        } elseif ( isset( $_POST[ $image_field ] ) && empty( $_POST[ $image_field ] ) ) {
+            delete_post_meta( $post_id, $image_field );
         }
     }
 }
