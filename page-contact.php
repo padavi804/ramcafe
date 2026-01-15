@@ -20,25 +20,15 @@ get_header();
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <header class="entry-header text-center">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            </header>
-
             <div class="entry-content container-narrow">
-                <?php
-                the_content();
-
-                wp_link_pages(
-                    array(
-                        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ramcafe' ),
-                        'after'  => '</div>',
-                    )
-                );
-                ?>
-
                 <!-- Contact Information Section -->
-                <div class="contact-info" style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background-color: var(--color-beige); border-radius: var(--radius-lg);">
-                    <h2 style="text-align: center; margin-bottom: var(--spacing-md);"><?php esc_html_e( 'Get in Touch', 'ramcafe' ); ?></h2>
+                <div class="contact-info" style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background-color: var(--color-beige); border: 2px solid var(--color-slate-blue); border-radius: var(--radius-lg);">
+                    <h2 style="text-align: center; margin-bottom: var(--spacing-md); color: var(--color-terracotta);"><?php esc_html_e( 'Get in Touch', 'ramcafe' ); ?></h2>
+
+                    <!-- Contact Form -->
+                    <div style="margin-bottom: var(--spacing-lg);">
+                        <?php the_content(); ?>
+                    </div>
 
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md);">
                         <?php
@@ -49,7 +39,7 @@ get_header();
                         if ( $address ) :
                             ?>
                             <div class="contact-item">
-                                <h3 style="color: var(--color-terracotta); font-size: 1.25rem; margin-bottom: var(--spacing-xs);">
+                                <h3 style="color: var(--color-beige); font-size: 1.25rem; margin-bottom: var(--spacing-xs);">
                                     <?php esc_html_e( 'Visit Us', 'ramcafe' ); ?>
                                 </h3>
                                 <p><?php echo nl2br( esc_html( $address ) ); ?></p>
@@ -97,35 +87,32 @@ get_header();
                             <h3 style="color: var(--color-terracotta); font-size: 1.25rem; margin-bottom: var(--spacing-sm);">
                                 <?php esc_html_e( 'Follow Us', 'ramcafe' ); ?>
                             </h3>
+                            <style>
+                                .social-links {
+                                    display: flex;
+                                    gap: 1rem;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                .social-links a {
+                                    display: inline-flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    color: var(--color-terracotta);
+                                    transition: color 0.3s ease;
+                                }
+                                .social-links a:hover {
+                                    color: var(--color-sage);
+                                }
+                                .social-links svg {
+                                    width: 32px;
+                                    height: 32px;
+                                }
+                            </style>
                             <?php ramcafe_social_links(); ?>
                         </div>
                         <?php
                     endif;
-                    ?>
-                </div>
-
-                <!-- Contact Form Section -->
-                <div class="contact-form-section" style="margin-top: var(--spacing-lg);">
-                    <h2 style="text-align: center; margin-bottom: var(--spacing-md);"><?php esc_html_e( 'Send Us a Message', 'ramcafe' ); ?></h2>
-
-                    <?php
-                    // Display contact form shortcode if a form plugin is active
-                    // Example: [contact-form-7 id="123" title="Contact form"]
-                    // Or: [wpforms id="123"]
-                    // Or: [ninja_form id=123]
-
-                    // Check if Contact Form 7 is active and display a placeholder message
-                    if ( function_exists( 'wpcf7' ) ) {
-                        echo '<p style="text-align: center; color: var(--color-gray-medium);">';
-                        echo esc_html__( 'Please add your Contact Form 7 shortcode here.', 'ramcafe' );
-                        echo '<br>';
-                        echo esc_html__( 'Example: [contact-form-7 id="123" title="Contact form"]', 'ramcafe' );
-                        echo '</p>';
-                    } else {
-                        echo '<p style="text-align: center; color: var(--color-gray-medium);">';
-                        echo esc_html__( 'Install a contact form plugin like Contact Form 7, WPForms, or Ninja Forms to enable the contact form.', 'ramcafe' );
-                        echo '</p>';
-                    }
                     ?>
                 </div>
 
