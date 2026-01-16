@@ -34,6 +34,12 @@ get_header();
                             )
                         );
                         ?>
+
+                        <div class="hero-cta-buttons">
+                            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'events' ) ) ); ?>" class="button">
+                                <?php esc_html_e( 'Upcoming Events', 'ramcafe' ); ?>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -49,6 +55,43 @@ get_header();
     endwhile;
     ?>
 
+    <!-- Community Connection Section -->
+    <section class="community-connection-section">
+        <h2 class="community-tagline">
+            <?php esc_html_e( 'Growing Community.', 'ramcafe' ); ?>
+            <span class="highlight"><?php esc_html_e( 'Celebrating Connection.', 'ramcafe' ); ?></span>
+        </h2>
+        <p class="community-subtitle"><?php esc_html_e( 'Serving the Rivers Area Community', 'ramcafe' ); ?></p>
+
+        <div class="community-grid">
+            <!-- Community -->
+            <div class="community-item">
+                <div class="community-icon">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/community-icon.png' ); ?>"
+                         alt="<?php esc_attr_e( 'Community', 'ramcafe' ); ?>">
+                </div>
+                <h3 class="community-item-title"><?php esc_html_e( 'Community', 'ramcafe' ); ?></h3>
+            </div>
+
+            <!-- Engagement -->
+            <div class="community-item">
+                <div class="community-icon">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/engagement-icon.png' ); ?>"
+                         alt="<?php esc_attr_e( 'Engagement', 'ramcafe' ); ?>">
+                </div>
+                <h3 class="community-item-title"><?php esc_html_e( 'Engagement', 'ramcafe' ); ?></h3>
+            </div>
+
+            <!-- Support -->
+            <div class="community-item">
+                <div class="community-icon">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/images/support-icon.png' ); ?>"
+                         alt="<?php esc_attr_e( 'Support', 'ramcafe' ); ?>">
+                </div>
+                <h3 class="community-item-title"><?php esc_html_e( 'Support', 'ramcafe' ); ?></h3>
+            </div>
+        </div>
+    </section>
 
     <!-- Featured Content Section -->
     <section class="featured-content" style="padding: var(--spacing-sm) var(--spacing-sm);">
