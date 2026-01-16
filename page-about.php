@@ -37,7 +37,7 @@ get_header();
                     <!-- Mission Statement Callout -->
                     <section class="mission-statement" style="background-color: var(--color-slate-blue); padding: var(--spacing-lg); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); text-align: center;">
                         <h2 style="color: var(--color-beige); font-size: 1.75rem; margin-top: 0;">Our Mission</h2>
-                        <div style="font-size: 1.2rem; line-height: 1.8; color: white;">
+                        <div style="font-size: 1.2rem; line-height: 1.8; color: white; font-weight: 500;">
                             <?php
                             /**
                              * Display the main content which should include the mission statement
@@ -57,7 +57,7 @@ get_header();
                             echo $cafe_heading ? esc_html( $cafe_heading ) : 'What is a Memory Café?';
                             ?>
                         </h2>
-                        <p style="font-size: 1.125rem; line-height: 1.8;">
+                        <p style="font-size: 1.2rem; line-height: 1.8; font-weight: 500;">
                             <?php
                             // Editable description - can be changed in WordPress Custom Fields
                             $cafe_description = get_post_meta( get_the_ID(), 'cafe_description', true );
@@ -138,23 +138,23 @@ get_header();
                     </section>
 
                     <!-- Who We Serve Section -->
-                    <section class="who-we-serve" style="margin-bottom: var(--spacing-lg); padding: var(--spacing-md); background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-olive-green) 100%); color: var(--color-white); border-radius: var(--radius-lg);">
-                        <h2 style="color: var(--color-white); margin-top: 0;">Who We Serve</h2>
+                    <section class="who-we-serve" style="background-color: var(--color-slate-blue); padding: var(--spacing-lg); border-radius: var(--radius-lg); margin-bottom: var(--spacing-lg); text-align: center;">
+                        <h2 style="color: var(--color-beige); font-size: 1.75rem; margin-top: 0; margin-bottom: var(--spacing-md);">Who We Serve</h2>
 
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
-                            <div>
-                                <h3 style="color: var(--color-beige); font-size: 1.25rem;">Individuals with Memory Loss</h3>
-                                <p>Those experiencing Alzheimer's disease, dementia, or other memory-related conditions are warmly welcomed.</p>
+                        <div style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: white; font-weight: 500;">
+                            <div style="margin-bottom: var(--spacing-md);">
+                                <h3 style="color: var(--color-beige); font-size: 1.4rem; margin-top: 0; margin-bottom: 0.5rem; font-weight: 600;">Individuals with Memory Loss</h3>
+                                <p style="margin: 0;">Those experiencing Alzheimer's disease, dementia, or other memory-related conditions are warmly welcomed.</p>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-md);">
+                                <h3 style="color: var(--color-beige); font-size: 1.4rem; margin-top: 0; margin-bottom: 0.5rem; font-weight: 600;">Care Partners</h3>
+                                <p style="margin: 0;">Spouses, family members, friends, or professional caregivers can attend together and find mutual support.</p>
                             </div>
 
                             <div>
-                                <h3 style="color: var(--color-beige); font-size: 1.25rem;">Care Partners</h3>
-                                <p>Spouses, family members, friends, or professional caregivers can attend together and find mutual support.</p>
-                            </div>
-
-                            <div>
-                                <h3 style="color: var(--color-beige); font-size: 1.25rem;">Community Members</h3>
-                                <p>Anyone interested in learning more about memory care and supporting our community is welcome.</p>
+                                <h3 style="color: var(--color-beige); font-size: 1.4rem; margin-top: 0; margin-bottom: 0.5rem; font-weight: 600;">Community Members</h3>
+                                <p style="margin: 0;">Anyone interested in learning more about memory care and supporting our community is welcome.</p>
                             </div>
                         </div>
                     </section>
@@ -162,7 +162,7 @@ get_header();
                     <!-- Get Involved Section -->
                     <section class="get-involved" style="background-color: var(--color-beige); padding: var(--spacing-lg); border-radius: var(--radius-lg); text-align: center; margin-bottom: var(--spacing-lg);">
                         <h2 style="color: var(--color-terracotta); margin-top: 0;">Get Involved</h2>
-                        <p style="font-size: 1.125rem; margin-bottom: var(--spacing-md);">
+                        <p style="font-size: 1.2rem; margin-bottom: var(--spacing-md); font-weight: 500; line-height: 1.8;">
                             Whether you're looking to attend, volunteer, or support our mission, there are many ways to connect with Rivers Area Memory Café.
                         </p>
 

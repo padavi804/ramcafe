@@ -39,10 +39,10 @@ get_header();
                         if ( $address ) :
                             ?>
                             <div class="contact-item">
-                                <h3 style="color: var(--color-beige); font-size: 1.25rem; margin-bottom: var(--spacing-xs);">
+                                <h3 style="color: var(--color-terracotta); font-size: 1.4rem; margin-bottom: var(--spacing-xs); font-weight: 600;">
                                     <?php esc_html_e( 'Visit Us', 'ramcafe' ); ?>
                                 </h3>
-                                <p><?php echo nl2br( esc_html( $address ) ); ?></p>
+                                <p style="font-size: 1.125rem; line-height: 1.8; font-weight: 500;"><?php echo nl2br( esc_html( $address ) ); ?></p>
                             </div>
                             <?php
                         endif;
@@ -50,10 +50,10 @@ get_header();
                         if ( $phone ) :
                             ?>
                             <div class="contact-item">
-                                <h3 style="color: var(--color-terracotta); font-size: 1.25rem; margin-bottom: var(--spacing-xs);">
+                                <h3 style="color: var(--color-terracotta); font-size: 1.4rem; margin-bottom: var(--spacing-xs); font-weight: 600;">
                                     <?php esc_html_e( 'Call Us', 'ramcafe' ); ?>
                                 </h3>
-                                <p>
+                                <p style="font-size: 1.125rem; line-height: 1.8; font-weight: 500;">
                                     <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>">
                                         <?php echo esc_html( $phone ); ?>
                                     </a>
@@ -65,10 +65,10 @@ get_header();
                         if ( $email ) :
                             ?>
                             <div class="contact-item">
-                                <h3 style="color: var(--color-terracotta); font-size: 1.25rem; margin-bottom: var(--spacing-xs);">
+                                <h3 style="color: var(--color-terracotta); font-size: 1.4rem; margin-bottom: var(--spacing-xs); font-weight: 600;">
                                     <?php esc_html_e( 'Email Us', 'ramcafe' ); ?>
                                 </h3>
-                                <p>
+                                <p style="font-size: 1.125rem; line-height: 1.8; font-weight: 500;">
                                     <a href="mailto:<?php echo esc_attr( $email ); ?>">
                                         <?php echo esc_html( $email ); ?>
                                     </a>
@@ -84,7 +84,7 @@ get_header();
                     if ( get_theme_mod( 'ramcafe_facebook' ) || get_theme_mod( 'ramcafe_instagram' ) ) :
                         ?>
                         <div class="contact-social" style="margin-top: var(--spacing-md); text-align: center;">
-                            <h3 style="color: var(--color-terracotta); font-size: 1.25rem; margin-bottom: var(--spacing-sm);">
+                            <h3 style="color: var(--color-terracotta); font-size: 1.4rem; margin-bottom: var(--spacing-sm); font-weight: 600;">
                                 <?php esc_html_e( 'Follow Us', 'ramcafe' ); ?>
                             </h3>
                             <style>
