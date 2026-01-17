@@ -224,14 +224,14 @@ a:focus {
 
 .site-logo img,
 .site-logo .default-logo {
-  max-height: 120px;
+  max-height: 160px;
   width: auto;
   height: auto;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 }
 
 .custom-logo-link img {
-  max-height: 120px;
+  max-height: 160px;
   width: auto;
   height: auto;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
@@ -269,6 +269,7 @@ a:focus {
 
 .main-navigation {
   width: 100%;
+  margin-top: -0.5rem;
 }
 
 .main-navigation ul {
@@ -324,7 +325,7 @@ button.menu-toggle,
   height: 44px !important;
   position: absolute !important;
   right: var(--spacing-sm);
-  top: 25px;
+  top: 45px;
   clip: auto !important;
   overflow: visible !important;
 }
@@ -735,8 +736,9 @@ label {
     padding: var(--spacing-md) var(--spacing-xs);
   }
 
-  .site-logo img {
-    max-height: 60px;
+  .site-logo img,
+  .custom-logo-link img {
+    max-height: 70px;
   }
 
   .site-title {
