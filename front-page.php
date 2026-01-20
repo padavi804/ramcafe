@@ -93,57 +93,6 @@ get_header();
         </div>
     </section>
 
-    <!-- Featured Content Section -->
-    <section class="featured-content" style="padding: var(--spacing-sm) var(--spacing-sm);">
-        <div class="container">
-            <h1 class="text-center" style="margin-bottom: var(--spacing-lg);">
-                <?php
-                // Editable section heading - can be changed in WordPress Custom Fields
-                $featured_heading = get_post_meta( get_the_ID(), 'featured_heading', true );
-                echo $featured_heading ? esc_html( $featured_heading ) : esc_html__( 'What We Offer', 'ramcafe' );
-                ?>
-            </h1>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-md);">
-                <?php
-                // Feature boxes - editable via Custom Fields
-                $features = array(
-                    array(
-                        'key' => 'offer_1',
-                        'default_title' => 'Community Connection',
-                        'default_text' => 'A welcoming space for individuals with memory loss and their care partners to connect with others facing similar experiences.',
-                    ),
-                    array(
-                        'key' => 'offer_2',
-                        'default_title' => 'Engaging Activities',
-                        'default_text' => 'Enjoy music, art, conversation, and activities designed to promote engagement and social connection.',
-                    ),
-                    array(
-                        'key' => 'offer_3',
-                        'default_title' => 'Support & Resources',
-                        'default_text' => 'Access information, resources, and a supportive community that understands the journey of memory loss.',
-                    ),
-                );
-
-                foreach ( $features as $feature ) {
-                    $title = get_post_meta( get_the_ID(), $feature['key'] . '_title', true );
-                    $text = get_post_meta( get_the_ID(), $feature['key'] . '_text', true );
-
-                    $title = $title ? esc_html( $title ) : esc_html( $feature['default_title'] );
-                    $text = $text ? wp_kses_post( $text ) : esc_html( $feature['default_text'] );
-                    ?>
-                    <div class="feature-box" style="background-color: var(--color-terracotta); padding: var(--spacing-md); border-radius: var(--radius-lg); text-align: center;">
-                        <h3 style="color: var(--color-beige);"><?php echo $title; ?></h3>
-                        <p style="color: var(--color-white); font-size: 1.15rem;"><?php echo $text; ?></p>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-        </div>
-    </section>
-
-
     <!-- Meeting Information Section -->
     <section class="meeting-info" style="background-color: var(--color-slate-blue); padding: var(--spacing-xl) var(--spacing-sm); border-radius: var(--radius-lg); margin-top: var(--spacing-xl);">
         <div class="container-narrow text-center">
