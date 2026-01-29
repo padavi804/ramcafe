@@ -1780,3 +1780,105 @@ label {
   font-size: 1.125rem;
   padding: var(--spacing-sm) var(--spacing-md);
 }
+
+/* ==========================================================================
+   RESOURCES PAGE
+   ========================================================================== */
+
+.resource-category-title {
+  font-size: 1.75rem;
+  color: var(--color-terracotta);
+  margin-bottom: var(--spacing-xs);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-gray-light);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  text-decoration: none;
+  color: inherit;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--color-beige);
+}
+
+.resource-badge {
+  align-self: flex-start;
+  margin-bottom: var(--spacing-sm);
+}
+
+.resource-card-title {
+  font-size: 1.25rem;
+  color: var(--color-terracotta);
+  margin-bottom: var(--spacing-xs);
+  transition: color var(--transition-fast);
+}
+
+.resource-card:hover .resource-card-title {
+  color: var(--color-slate-blue);
+}
+
+.resource-card-description {
+  color: var(--color-gray-dark);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  flex: 1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.resource-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-terracotta);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-gray-light);
+  transition: color var(--transition-fast);
+}
+
+.resource-card:hover .resource-card-link {
+  color: var(--color-slate-blue);
+}
+
+.resource-card-link span {
+  transition: transform var(--transition-fast);
+  display: inline-block;
+}
+
+.resource-card:hover .resource-card-link span {
+  transform: translateX(4px);
+}
+
+.resource-helpline a:hover {
+  color: var(--color-beige) !important;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-category-title {
+    font-size: 1.5rem;
+  }
+}
