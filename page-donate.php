@@ -13,17 +13,16 @@ get_header();
 
 <main id="primary" class="site-main">
 
-    <section class="donate-hero">
-        <div class="container-narrow text-center">
-            <h1 class="donate-heading"><?php esc_html_e( 'Support Our Community', 'ramcafe' ); ?></h1>
-            <p class="donate-subheading">
-                <?php esc_html_e( 'Your gift helps keep Rivers Area Memory Café free and accessible for every family we serve. Every contribution — large or small — makes a difference.', 'ramcafe' ); ?>
-            </p>
-        </div>
-    </section>
-
     <section class="donate-form-section">
         <div class="container-narrow">
+
+            <div style="background-color: var(--color-beige); border: 2px solid var(--color-slate-blue); border-radius: var(--radius-lg); padding: var(--spacing-lg); text-align: center; margin-bottom: var(--spacing-lg);">
+                <h1 style="color: var(--color-terracotta); margin-top: 0;"><?php esc_html_e( 'Support Our Community', 'ramcafe' ); ?></h1>
+                <p style="font-size: 1.2rem; line-height: 1.8; font-weight: 500; color: var(--color-black); max-width: 580px; margin: 0 auto;">
+                    <?php esc_html_e( 'Your gift helps keep Rivers Area Memory Café free and accessible for every family we serve. Every contribution — large or small — makes a difference.', 'ramcafe' ); ?>
+                </p>
+            </div>
+
             <?php
             /*
              * BLOOMERANG INTEGRATION

@@ -39,9 +39,6 @@ get_header();
                             <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'events' ) ) ); ?>" class="button">
                                 <?php esc_html_e( 'Upcoming Events', 'ramcafe' ); ?>
                             </a>
-                            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button button-secondary">
-                                <?php esc_html_e( 'Donate', 'ramcafe' ); ?>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -93,6 +90,19 @@ get_header();
                 </div>
                 <h3 class="community-item-title"><?php esc_html_e( 'Support', 'ramcafe' ); ?></h3>
             </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section style="padding: var(--spacing-lg) var(--spacing-sm);">
+        <div class="container-narrow" style="background-color: var(--color-beige); border: 2px solid var(--color-slate-blue); border-radius: var(--radius-lg); padding: var(--spacing-lg); text-align: center;">
+            <h2 style="color: var(--color-terracotta); margin-top: 0;"><?php esc_html_e( 'Support Our Mission', 'ramcafe' ); ?></h2>
+            <p style="font-size: 1.1rem; line-height: 1.7; font-weight: 500; margin-bottom: var(--spacing-md);">
+                <?php esc_html_e( 'Your generosity keeps Memory Café free and welcoming for every family in our community.', 'ramcafe' ); ?>
+            </p>
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button button-secondary">
+                <?php esc_html_e( 'Make a Donation', 'ramcafe' ); ?>
+            </a>
         </div>
     </section>
 
