@@ -39,6 +39,9 @@ get_header();
                             <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'events' ) ) ); ?>" class="button">
                                 <?php esc_html_e( 'Upcoming Events', 'ramcafe' ); ?>
                             </a>
+                            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button button-secondary">
+                                <?php esc_html_e( 'Donate', 'ramcafe' ); ?>
+                            </a>
                         </div>
                     </div>
                 </div>

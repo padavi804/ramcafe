@@ -116,6 +116,17 @@ get_header();
                     ?>
                 </div>
 
+                <!-- Donation Callout -->
+                <div class="donate-callout">
+                    <h2 class="donate-callout-heading"><?php esc_html_e( 'Support Rivers Area Memory Café', 'ramcafe' ); ?></h2>
+                    <p class="donate-callout-body">
+                        <?php esc_html_e( 'Your donation helps us keep our doors open and our community connected. Every gift makes a difference.', 'ramcafe' ); ?>
+                    </p>
+                    <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button button-secondary">
+                        <?php esc_html_e( 'Make a Donation', 'ramcafe' ); ?>
+                    </a>
+                </div>
+
             </div><!-- .entry-content -->
 
         </article><!-- #post-<?php the_ID(); ?> -->

@@ -1797,6 +1797,77 @@ label {
   gap: var(--spacing-md);
 }
 
+/* ==========================================================================
+   DONATION PAGE
+   ========================================================================== */
+
+.donate-hero {
+  padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-beige);
+  text-align: center;
+}
+
+.donate-heading {
+  color: var(--color-terracotta);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+.donate-subheading {
+  font-size: 1.125rem;
+  color: var(--color-slate-blue);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.donate-form-section {
+  padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.donate-form-wrapper {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+
+.donate-secure-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-gray-medium);
+  margin-top: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   DONATION CALLOUT (contact page)
+   ========================================================================== */
+
+.donate-callout {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: var(--color-slate-blue);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.donate-callout-heading {
+  color: var(--color-beige);
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.donate-callout-body {
+  color: var(--color-beige);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .resource-card {
   display: flex;
   flex-direction: column;
