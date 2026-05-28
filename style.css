@@ -1933,3 +1933,86 @@ label {
     font-size: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   LEADERSHIP / BOARD PAGE
+   ========================================================================== */
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.member-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.member-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.member-photo-wrap {
+  margin-bottom: var(--spacing-sm);
+}
+
+.member-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-beige);
+}
+
+.member-photo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--color-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-slate-blue);
+}
+
+.member-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-terracotta);
+  margin: 0 0 0.25rem 0;
+}
+
+.member-role {
+  font-size: 0.95rem;
+  color: var(--color-slate-blue);
+  font-style: italic;
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.member-bio {
+  font-size: 0.9rem;
+  color: var(--color-gray-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .member-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .member-grid {
+    grid-template-columns: 1fr;
+  }
+}

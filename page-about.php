@@ -169,6 +169,7 @@ get_header();
                         <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
                             <a href="<?php echo esc_url( home_url( '/events' ) ); ?>" class="button">View Events</a>
                             <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button button-secondary">Contact Us</a>
+                            <a href="<?php echo esc_url( home_url( '/leadership' ) ); ?>" class="button button-secondary">Meet Our Board</a>
                         </div>
                     </section>
 
