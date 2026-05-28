@@ -122,7 +122,7 @@ get_header();
                     <p class="donate-callout-body">
                         <?php esc_html_e( 'Your donation helps us keep our doors open and our community connected. Every gift makes a difference.', 'ramcafe' ); ?>
                     </p>
-                    <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button button-secondary">
+                    <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button">
                         <?php esc_html_e( 'Make a Donation', 'ramcafe' ); ?>
                     </a>
                 </div>
