@@ -8,7 +8,7 @@
  * for N = 1 through 9.
  *
  * @package RAMCafe
- * @since 1.0.0
+ * @since 1.2.0
  */
 
 get_header();

@@ -23,36 +23,8 @@ get_header();
                 </p>
             </div>
 
-            <?php
-            /*
-             * BLOOMERANG INTEGRATION
-             *
-             * Replace the placeholder iframe src below with your Bloomerang hosted
-             * donation form URL. To find it:
-             *   1. Log into Bloomerang
-             *   2. Go to Fundraising → Donation Forms
-             *   3. Click your form → "Embed / Share"
-             *   4. Copy the iframe src URL and paste it below
-             *
-             * Example URL format:
-             *   https://crm.bloomerang.co/HostedDonation?ApiKey=YOUR_API_KEY&formId=YOUR_FORM_ID
-             */
-            $bloomerang_url = 'https://crm.bloomerang.co/HostedDonation?ApiKey=REPLACE_WITH_YOUR_KEY';
-            ?>
-
             <div class="donate-form-wrapper">
-                <iframe
-                    id="bloomerang-donation-form"
-                    src="<?php echo esc_url( $bloomerang_url ); ?>"
-                    title="<?php esc_attr_e( 'Donation Form — Rivers Area Memory Café', 'ramcafe' ); ?>"
-                    seamless
-                    scrolling="no"
-                    frameborder="0"
-                    allowtransparency="true"
-                    width="100%"
-                    height="900"
-                    style="border: none; display: block;"
-                ></iframe>
+                <script src="https://s3-us-west-2.amazonaws.com/bloomerang-public-cdn/riversareamemorycafe/.widget-js/103424.js" type="text/javascript"></script>
             </div>
 
             <p class="donate-secure-note">

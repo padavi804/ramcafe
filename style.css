@@ -1809,8 +1809,32 @@ label {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  overflow: hidden;
+  padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
+  min-height: 500px;
+}
+
+.donate-form-wrapper,
+.donate-form-wrapper * {
+  font-family: var(--font-body);
+}
+
+.donate-form-wrapper h1,
+.donate-form-wrapper h2,
+.donate-form-wrapper h3,
+.donate-form-wrapper h4,
+.donate-form-wrapper h5,
+.donate-form-wrapper h6 {
+  font-family: var(--font-primary);
+  color: var(--color-terracotta);
+}
+
+.donate-form-wrapper a {
+  color: var(--color-slate-blue);
+}
+
+.donate-form-wrapper a:hover {
+  color: var(--color-terracotta);
 }
 
 .donate-secure-note {
@@ -1818,6 +1842,12 @@ label {
   font-size: 0.9rem;
   color: var(--color-gray-medium);
   margin-top: var(--spacing-sm);
+}
+
+@media screen and (max-width: 480px) {
+  .donate-form-wrapper {
+    padding: var(--spacing-sm);
+  }
 }
 
 /* ==========================================================================
