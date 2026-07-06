@@ -1844,6 +1844,50 @@ label {
   margin-top: var(--spacing-sm);
 }
 
+/* Overrides for the Bloomerang self-hosted form's injected styles.
+   The widget injects its own <style> at runtime, so these selectors
+   carry extra specificity via .donate-form-wrapper. */
+
+.donate-form-wrapper .donation-form .section {
+  margin-bottom: var(--spacing-sm);
+}
+
+.donate-form-wrapper .donation-form label {
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.donate-form-wrapper .donation-form .field .required-star {
+  color: var(--color-terracotta);
+}
+
+.donate-form-wrapper .donation-form .field input,
+.donate-form-wrapper .donation-form .field select,
+.donate-form-wrapper .donation-form .field textarea {
+  max-width: 380px;
+}
+
+.donate-form-wrapper .donation-form .field .checkbox.selected {
+  background: var(--color-slate-blue);
+}
+
+.donate-form-wrapper .donation-form .field.checkbox input,
+.donate-form-wrapper .donation-form .field.radio input {
+  margin-right: 8px;
+}
+
+.donate-form-wrapper .btn-group .btn-submit-donation {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 1.1rem;
+}
+
+.donate-form-wrapper .btn-group .btn-submit-donation:disabled,
+.donate-form-wrapper .btn-group .btn-submit-donation.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 @media screen and (max-width: 480px) {
   .donate-form-wrapper {
     padding: var(--spacing-sm);

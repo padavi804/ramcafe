@@ -24,7 +24,7 @@ get_header();
             </div>
 
             <div class="donate-form-wrapper">
-                <script src="https://s3-us-west-2.amazonaws.com/bloomerang-public-cdn/riversareamemorycafe/.widget-js/103424.js" type="text/javascript"></script>
+                <?php get_template_part( 'template-parts/bloomerang-donation-form' ); ?>
             </div>
 
             <p class="donate-secure-note">
