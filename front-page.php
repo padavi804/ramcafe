@@ -95,12 +95,12 @@ get_header();
 
     <!-- Donate Section -->
     <section style="padding: var(--spacing-lg) var(--spacing-sm);">
-        <div class="container-narrow" style="background-color: var(--color-beige); border: 2px solid var(--color-slate-blue); border-radius: var(--radius-lg); padding: var(--spacing-lg); text-align: center;">
-            <h2 style="color: var(--color-terracotta); margin-top: 0;"><?php esc_html_e( 'Support Our Mission', 'ramcafe' ); ?></h2>
-            <p style="font-size: 1.1rem; line-height: 1.7; font-weight: 500; margin-bottom: var(--spacing-md);">
+        <div class="container-narrow donate-banner">
+            <h2><?php esc_html_e( 'Support Our Mission', 'ramcafe' ); ?></h2>
+            <p>
                 <?php esc_html_e( 'Your generosity keeps Memory Café free and welcoming for every family in our community.', 'ramcafe' ); ?>
             </p>
-            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button button-secondary">
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'donate' ) ) ); ?>" class="button donate-banner-button">
                 <?php esc_html_e( 'Make a Donation', 'ramcafe' ); ?>
             </a>
         </div>

@@ -200,6 +200,15 @@ a:focus {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+/* Frosted-glass blur with a soft bottom fade, on a pseudo-element so the
+   mask never fades the menu content itself (e.g. the Donate pill). */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
@@ -324,7 +333,7 @@ button.menu-toggle,
   width: 44px !important;
   height: 44px !important;
   position: absolute !important;
-  right: var(--spacing-sm);
+  right: 4px;
   top: 45px;
   clip: auto !important;
   overflow: visible !important;
@@ -1499,6 +1508,34 @@ label {
   left: 10%;
 }
 
+/* Donate button in the nav — outlined pill, no underline animation */
+.main-navigation .menu-item-donate a {
+  background-color: transparent;
+  color: var(--color-slate-blue);
+  border: 2px solid var(--color-terracotta);
+  border-radius: 999px;
+  padding: calc(var(--spacing-xs) - 2px) var(--spacing-md);
+}
+
+.main-navigation .menu-item-donate a:hover,
+.main-navigation .menu-item-donate a:focus,
+.main-navigation .menu-item-donate.current-menu-item > a {
+  background-color: var(--color-terracotta);
+  color: var(--color-white);
+  text-shadow: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.main-navigation .menu-item-donate a::after {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .main-navigation .menu-item-donate a {
+    border-radius: var(--radius-sm);
+  }
+}
+
 /* ==========================================================================
    CAFE FEATURES WITH IMAGES (About Page)
    ========================================================================== */
@@ -1892,6 +1929,46 @@ label {
   .donate-form-wrapper {
     padding: var(--spacing-sm);
   }
+}
+
+/* ==========================================================================
+   DONATE BANNER (front page)
+   ========================================================================== */
+
+.donate-banner {
+  background: linear-gradient(135deg, var(--color-terracotta) 0%, #B84E30 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.donate-banner h2 {
+  color: var(--color-white);
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.donate-banner p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--color-beige);
+  max-width: 520px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.donate-banner .donate-banner-button {
+  background-color: var(--color-white);
+  color: var(--color-terracotta);
+  font-size: 1.1rem;
+  padding: var(--spacing-xs) var(--spacing-lg);
+}
+
+.donate-banner .donate-banner-button:hover,
+.donate-banner .donate-banner-button:focus {
+  background-color: var(--color-beige);
+  color: #B84E30;
 }
 
 /* ==========================================================================

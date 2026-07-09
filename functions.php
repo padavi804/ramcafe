@@ -681,3 +681,20 @@ function ramcafe_home_page_admin_notice() {
     <?php
 }
 add_action( 'admin_notices', 'ramcafe_home_page_admin_notice' );
+
+/**
+ * Append a Donate button to the primary navigation menu.
+ */
+function ramcafe_add_donate_menu_item( $items, $args ) {
+    if ( 'primary' !== $args->theme_location ) {
+        return $items;
+    }
+
+    $donate_page = get_page_by_path( 'donate' );
+    if ( $donate_page ) {
+        $items .= '<li class="menu-item menu-item-donate"><a href="' . esc_url( get_permalink( $donate_page ) ) . '">' . esc_html__( 'Donate', 'ramcafe' ) . '</a></li>';
+    }
+
+    return $items;
+}
+add_filter( 'wp_nav_menu_items', 'ramcafe_add_donate_menu_item', 10, 2 );

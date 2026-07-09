@@ -106,12 +106,18 @@
  * Fallback menu when no menu is assigned
  */
 function ramcafe_fallback_menu() {
+    $donate_page = get_page_by_path( 'donate' );
+
     echo '<ul id="primary-menu">';
     wp_list_pages(
         array(
             'title_li' => '',
             'depth'    => 1,
+            'exclude'  => $donate_page ? $donate_page->ID : '',
         )
     );
+    if ( $donate_page ) {
+        echo '<li class="menu-item-donate"><a href="' . esc_url( get_permalink( $donate_page ) ) . '">' . esc_html__( 'Donate', 'ramcafe' ) . '</a></li>';
+    }
     echo '</ul>';
 }
