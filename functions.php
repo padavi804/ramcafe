@@ -108,14 +108,20 @@ if ( ! isset( $content_width ) ) {
  * This function loads CSS and JavaScript files for the theme
  */
 function ramcafe_scripts() {
+    // Version assets with the theme version so caches refresh on each release
+    $theme_version = wp_get_theme()->get( 'Version' );
+
     // Enqueue Google Fonts - Montserrat
     wp_enqueue_style( 'ramcafe-google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap', array(), null );
 
     // Enqueue main stylesheet
-    wp_enqueue_style( 'ramcafe-style', get_stylesheet_uri(), array( 'ramcafe-google-fonts' ), '1.0.0' );
+    wp_enqueue_style( 'ramcafe-style', get_stylesheet_uri(), array( 'ramcafe-google-fonts' ), $theme_version );
 
     // Enqueue custom JavaScript for navigation
-    wp_enqueue_script( 'ramcafe-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'ramcafe-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version, true );
+
+    // Temporary while donation portal is under construction — remove when live
+    wp_enqueue_script( 'ramcafe-donation-notice', get_template_directory_uri() . '/js/donation-notice.js', array(), $theme_version, true );
 
     // Enqueue comment reply script on singular posts/pages with comments open
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -260,6 +266,18 @@ function ramcafe_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( 'ramcafe_address', array(
         'label'   => esc_html__( 'Address', 'ramcafe' ),
+        'section' => 'ramcafe_contact_info',
+        'type'    => 'textarea',
+    ) );
+
+    // Mailing Address (PO Box)
+    $wp_customize->add_setting( 'ramcafe_mailing_address', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ) );
+
+    $wp_customize->add_control( 'ramcafe_mailing_address', array(
+        'label'   => esc_html__( 'Mailing Address', 'ramcafe' ),
         'section' => 'ramcafe_contact_info',
         'type'    => 'textarea',
     ) );

@@ -46,14 +46,23 @@
             <div class="site-info">
                 <?php
                 // Display contact information from Customizer
-                $phone   = get_theme_mod( 'ramcafe_phone' );
-                $email   = get_theme_mod( 'ramcafe_email' );
-                $address = get_theme_mod( 'ramcafe_address' );
+                $phone           = get_theme_mod( 'ramcafe_phone' );
+                $email           = get_theme_mod( 'ramcafe_email' );
+                $address         = get_theme_mod( 'ramcafe_address' );
+                $mailing_address = get_theme_mod( 'ramcafe_mailing_address' );
 
                 if ( $address ) :
                     ?>
                     <p class="footer-address">
                         <strong><?php esc_html_e( 'Location:', 'ramcafe' ); ?></strong> <?php echo esc_html( $address ); ?>
+                    </p>
+                    <?php
+                endif;
+
+                if ( $mailing_address ) :
+                    ?>
+                    <p class="footer-mailing-address">
+                        <strong><?php esc_html_e( 'Mailing Address:', 'ramcafe' ); ?></strong> <?php echo esc_html( $mailing_address ); ?>
                     </p>
                     <?php
                 endif;
@@ -127,6 +136,20 @@
     </footer><!-- #colophon -->
 
 </div><!-- #page -->
+
+<div id="donation-notice-modal" class="donation-notice-modal" role="dialog" aria-modal="true" aria-labelledby="donation-notice-title" hidden>
+    <div class="donation-notice-backdrop"></div>
+    <div class="donation-notice-content">
+        <button type="button" class="donation-notice-close" aria-label="<?php esc_attr_e( 'Close', 'ramcafe' ); ?>">&times;</button>
+        <h2 id="donation-notice-title"><?php esc_html_e( 'Thank You for Your Support!', 'ramcafe' ); ?></h2>
+        <p><?php esc_html_e( 'Our online donation portal is under construction. In the meantime, donations can be mailed to:', 'ramcafe' ); ?></p>
+        <p class="donation-notice-address">
+            <?php esc_html_e( 'Rivers Area Memory Café', 'ramcafe' ); ?><br>
+            <?php esc_html_e( 'PO Box 103', 'ramcafe' ); ?><br>
+            <?php esc_html_e( 'Fergus Falls, MN 56538', 'ramcafe' ); ?>
+        </p>
+    </div>
+</div>
 
 <?php wp_footer(); ?>
 
