@@ -137,6 +137,7 @@
 
 </div><!-- #page -->
 
+<?php if ( ! current_user_can( 'manage_options' ) ) : // Suppress the mail-only popup for admins while the donation form is in private testing. ?>
 <div id="donation-notice-modal" class="donation-notice-modal" role="dialog" aria-modal="true" aria-labelledby="donation-notice-title" hidden>
     <div class="donation-notice-backdrop"></div>
     <div class="donation-notice-content">
@@ -150,6 +151,7 @@
         </p>
     </div>
 </div>
+<?php endif; ?>
 
 <?php wp_footer(); ?>
 

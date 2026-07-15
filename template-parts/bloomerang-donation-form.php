@@ -642,7 +642,7 @@ Bloomerang.Data.PayPal.IsPayPalPaymentMethodVaultingEnabled = false;Bloomerang.D
                                         }
                                         Bloomerang.paymentFormLoaded = true;
                       
-                        Bloomerang.reCaptchaV3SiteKey = '';
+                        Bloomerang.reCaptchaV3SiteKey = '6LdnqFUtAAAAAPtmqrcc0efsD_EWMzlNKQ965RIw';
                         Bloomerang.gRecaptchaV3Threshold = 0.5;
 
                         window.captchaLoadCallback = function() {
@@ -1540,7 +1540,7 @@ Bloomerang.Data.PayPal.IsPayPalPaymentMethodVaultingEnabled = false;Bloomerang.D
                         window.bloomerangLoadStarted = true;
                         var script = document.createElement('script');
                         script.type = 'text/javascript';
-                        script.src = 'https://crm.bloomerang.co/Content/Scripts/Api/Bloomerang-v2.js?nocache=1782416671';
+                        script.src = 'https://crm.bloomerang.co/Content/Scripts/Api/Bloomerang-v2.js?nocache=1782934153';
                         document.getElementsByTagName('head')[0].appendChild(script);
                         waitForBloomerangLoad(function() { Bloomerang.Util.requireJQueryValidationAndStripe(function() { insertForm103424(); })});
                     }
