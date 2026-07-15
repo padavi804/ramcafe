@@ -23,25 +23,12 @@ get_header();
                 </p>
             </div>
 
-            <?php // Temporary while donation portal is in private testing — admins see the live form, the public sees the mail notice. ?>
-            <?php if ( current_user_can( 'manage_options' ) ) : ?>
-                <div class="donate-form-wrapper">
-                    <?php get_template_part( 'template-parts/bloomerang-donation-form' ); ?>
-                </div>
-            <?php else : ?>
-                <div class="donation-notice-content donate-mail-notice">
-                    <h2><?php esc_html_e( 'Donate by Mail', 'ramcafe' ); ?></h2>
-                    <p><?php esc_html_e( 'Our online donation portal is under construction. In the meantime, donations can be mailed to:', 'ramcafe' ); ?></p>
-                    <p class="donation-notice-address">
-                        <?php esc_html_e( 'Rivers Area Memory Café', 'ramcafe' ); ?><br>
-                        <?php esc_html_e( 'PO Box 103', 'ramcafe' ); ?><br>
-                        <?php esc_html_e( 'Fergus Falls, MN 56538', 'ramcafe' ); ?>
-                    </p>
-                </div>
-            <?php endif; ?>
+            <div class="donate-form-wrapper">
+                <?php get_template_part( 'template-parts/bloomerang-donation-form' ); ?>
+            </div>
 
             <p class="donate-secure-note">
-                <?php esc_html_e( 'Rivers Area Memory Café is a 501(c)(3) nonprofit organization.', 'ramcafe' ); ?>
+                <?php esc_html_e( 'Donations are processed securely through Bloomerang. Rivers Area Memory Café is a 501(c)(3) nonprofit organization.', 'ramcafe' ); ?>
             </p>
         </div>
     </section>

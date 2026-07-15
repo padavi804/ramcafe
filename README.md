@@ -313,5 +313,5 @@ Set up automatic weekly backups to save:
 
 ---
 
-Last Updated: January 2026
-Theme Version: 1.0.0
+Last Updated: July 2026
+Theme Version: 1.2.2

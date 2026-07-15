@@ -120,11 +120,6 @@ function ramcafe_scripts() {
     // Enqueue custom JavaScript for navigation
     wp_enqueue_script( 'ramcafe-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version, true );
 
-    // Temporary while donation portal is under construction — remove when live. Admins skip the popup for private form testing.
-    if ( ! current_user_can( 'manage_options' ) ) {
-        wp_enqueue_script( 'ramcafe-donation-notice', get_template_directory_uri() . '/js/donation-notice.js', array(), $theme_version, true );
-    }
-
     // Enqueue comment reply script on singular posts/pages with comments open
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );

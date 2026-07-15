@@ -137,22 +137,6 @@
 
 </div><!-- #page -->
 
-<?php if ( ! current_user_can( 'manage_options' ) ) : // Suppress the mail-only popup for admins while the donation form is in private testing. ?>
-<div id="donation-notice-modal" class="donation-notice-modal" role="dialog" aria-modal="true" aria-labelledby="donation-notice-title" hidden>
-    <div class="donation-notice-backdrop"></div>
-    <div class="donation-notice-content">
-        <button type="button" class="donation-notice-close" aria-label="<?php esc_attr_e( 'Close', 'ramcafe' ); ?>">&times;</button>
-        <h2 id="donation-notice-title"><?php esc_html_e( 'Thank You for Your Support!', 'ramcafe' ); ?></h2>
-        <p><?php esc_html_e( 'Our online donation portal is under construction. In the meantime, donations can be mailed to:', 'ramcafe' ); ?></p>
-        <p class="donation-notice-address">
-            <?php esc_html_e( 'Rivers Area Memory Café', 'ramcafe' ); ?><br>
-            <?php esc_html_e( 'PO Box 103', 'ramcafe' ); ?><br>
-            <?php esc_html_e( 'Fergus Falls, MN 56538', 'ramcafe' ); ?>
-        </p>
-    </div>
-</div>
-<?php endif; ?>
-
 <?php wp_footer(); ?>
 
 </body>

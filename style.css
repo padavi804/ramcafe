@@ -4,7 +4,7 @@ Theme URI: https://riversareamemorycafe.org
 Author: Rivers Area Memory Café
 Author URI: https://riversareamemorycafe.org
 Description: A warm, community-focused WordPress theme for Rivers Area Memory Café featuring nature-inspired design with custom event management capabilities.
-Version: 1.2.1
+Version: 1.2.2
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -2168,77 +2168,3 @@ label {
   }
 }
 
-/* ==========================================================================
-   DONATION NOTICE MODAL (temporary — portal under construction)
-   ========================================================================== */
-
-.donation-notice-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-sm);
-}
-
-.donation-notice-modal[hidden] {
-  display: none;
-}
-
-.donation-notice-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-}
-
-.donation-notice-content {
-  position: relative;
-  background-color: var(--color-beige);
-  border: 2px solid var(--color-slate-blue);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  padding: var(--spacing-lg) var(--spacing-md);
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-}
-
-.donation-notice-content h2 {
-  color: var(--color-terracotta);
-  margin-top: 0;
-}
-
-.donation-notice-address {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-slate-blue);
-  line-height: 1.8;
-  margin-bottom: 0;
-}
-
-.donation-notice-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--color-slate-blue);
-  cursor: pointer;
-  padding: 0.25rem;
-}
-
-.donation-notice-close:hover,
-.donation-notice-close:focus {
-  color: var(--color-terracotta);
-}
-
-body.donation-notice-open {
-  overflow: hidden;
-}
-
-.donate-mail-notice {
-  margin: 0 auto;
-}

@@ -4,7 +4,10 @@
  *
  * Generated snippet from Bloomerang: Communications → Forms → Online Giving.
  * If the form is rebuilt in Bloomerang, re-export the snippet and replace
- * everything below the closing PHP tag.
+ * everything below the closing PHP tag, then re-apply local tweaks:
+ * - Bloomerang.scrollToElement: offset by the sticky header height so the
+ *   post-payment confirmation isn't hidden behind the header.
+ * - Strip any <pre></pre> tags picked up when copying the snippet.
  */
 ?>
 <script type="text/javascript" id="bloomerangForm103424"></script>
@@ -857,7 +860,10 @@ Bloomerang.Data.PayPal.IsPayPalPaymentMethodVaultingEnabled = false;Bloomerang.D
             } else return true;
         };
         Bloomerang.scrollToElement = function(element) {
-            var distance = 100;
+            // Theme tweak (re-apply after re-exporting from Bloomerang): the
+            // snippet's fixed 100px offset is shorter than the sticky header,
+            // hiding the confirmation message behind it.
+            var distance = (jQuery('.site-header').outerHeight() || 100) + 20;
             var offset = element.offset().top;
             var offsetTop = offset > distance ? offset - distance : offset;
 		        jQuery('html, body').animate({ scrollTop : offsetTop}, 500);
