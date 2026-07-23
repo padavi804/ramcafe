@@ -18,8 +18,19 @@ get_header();
 
             <div style="background-color: var(--color-beige); border: 2px solid var(--color-slate-blue); border-radius: var(--radius-lg); padding: var(--spacing-lg); text-align: center; margin-bottom: var(--spacing-lg);">
                 <h1 style="color: var(--color-terracotta); margin-top: 0;"><?php esc_html_e( 'Support Our Community', 'ramcafe' ); ?></h1>
-                <p style="font-size: 1.2rem; line-height: 1.8; font-weight: 500; color: var(--color-black); max-width: 580px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; line-height: 1.8; font-weight: 500; color: var(--color-slate-blue); max-width: 580px; margin: 0 auto;">
                     <?php esc_html_e( 'Your gift helps keep Rivers Area Memory Café free and accessible for every family we serve. Every contribution — large or small — makes a difference.', 'ramcafe' ); ?>
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8; font-weight: 500; color: var(--color-slate-blue); max-width: 580px; margin: 1rem auto 0;">
+                    <?php esc_html_e( 'To donate by mail, please make checks payable to Rivers Area Memory Café and mail to:', 'ramcafe' ); ?>
+                    <br>
+                    <strong>
+                        <?php esc_html_e( 'PO Box 103', 'ramcafe' ); ?>
+                        <br>
+                        <?php esc_html_e( 'Fergus Falls, MN 56538', 'ramcafe' ); ?>
+                    </strong>
+                    <br>
+                    <?php esc_html_e( 'Or you may also make a secure online donation using the option below.', 'ramcafe' ); ?>
                 </p>
             </div>
 
