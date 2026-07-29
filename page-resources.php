@@ -104,12 +104,13 @@ get_header();
 
                         <div class="resource-grid">
 
-                            <a href="https://bolddementiacaregiving.org/pdfviewer/a-guide-on-advanced-care-planning/?auto_viewer=true&display=true#page=&zoom=page-fit&pagemode=none" class="resource-card" target="_blank" rel="noopener noreferrer">
-                                <span class="badge badge-secondary resource-badge"><?php esc_html_e( 'Guide', 'ramcafe' ); ?></span>
-                                <h3 class="resource-card-title"><?php esc_html_e( 'Advanced Care Planning', 'ramcafe' ); ?></h3>
-                                <p class="resource-card-description"><?php esc_html_e( 'A guide on advanced care planning resources for people with dementia and their care partners.', 'ramcafe' ); ?></p>
+                            <?php // NOTE: Upload the PDF to the WordPress Media Library, then replace the URL below with the file's Media Library URL. See "Where Images Are Stored" in IMAGES-GUIDE.md. ?>
+                            <a href="<?php echo esc_url( home_url( '/wp-content/uploads/rivers-area-memory-cafe-next-steps-checklist.pdf' ) ); ?>" class="resource-card" target="_blank" rel="noopener noreferrer">
+                                <span class="badge badge-secondary resource-badge"><?php esc_html_e( 'Checklist', 'ramcafe' ); ?></span>
+                                <h3 class="resource-card-title"><?php esc_html_e( 'Memory Changes? The Next Steps', 'ramcafe' ); ?></h3>
+                                <p class="resource-card-description"><?php esc_html_e( 'A printable checklist of tests, screenings, and next steps to discuss with your provider when you notice memory changes in a loved one.', 'ramcafe' ); ?></p>
                                 <span class="resource-card-link">
-                                    <?php esc_html_e( 'View Guide', 'ramcafe' ); ?>
+                                    <?php esc_html_e( 'Download PDF', 'ramcafe' ); ?>
                                     <span aria-hidden="true">&rarr;</span>
                                 </span>
                             </a>
