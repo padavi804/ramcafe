@@ -4,7 +4,7 @@ Theme URI: https://riversareamemorycafe.org
 Author: Rivers Area Memory Café
 Author URI: https://riversareamemorycafe.org
 Description: A warm, community-focused WordPress theme for Rivers Area Memory Café featuring nature-inspired design with custom event management capabilities.
-Version: 1.2.4
+Version: 1.2.5
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -2166,5 +2166,25 @@ label {
   .member-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   Event Tickets - Hide RSVP attendance count
+   ==========================================================================
+   The free Event Tickets plugin always renders a "X Going" count inside the
+   RSVP block, and offers no admin setting to turn it off. A low count can
+   discourage first-time visitors from attending, so we hide it here while
+   leaving the RSVP button itself fully functional.
+
+   To bring the count back, delete this block. If the plugin changes its
+   markup in a future update and the number reappears, inspect the element
+   and add its class below.
+   ========================================================================== */
+
+.tribe-tickets__rsvp-attendance,
+.tribe-tickets__rsvp-attendance-number,
+.tribe-tickets__rsvp-attendance-going,
+.tribe-tickets__rsvp-attendance-not-going {
+  display: none !important;
 }
 
