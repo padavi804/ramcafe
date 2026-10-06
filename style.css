@@ -4,7 +4,7 @@ Theme URI: https://riversareamemorycafe.org
 Author: Rivers Area Memory Café
 Author URI: https://riversareamemorycafe.org
 Description: A warm, community-focused WordPress theme for Rivers Area Memory Café featuring nature-inspired design with custom event management capabilities.
-Version: 1.2.5
+Version: 1.2.6
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -24,6 +24,8 @@ Use it to make something cool, have fun, and share what you've learned.
 :root {
   /* Brand Colors */
   --color-terracotta: #CE593A;
+  --color-terracotta-strong: #B84E30; /* button/badge backgrounds: 5.0:1 with white text */
+  --color-terracotta-dark: #A64429;   /* small text on white or beige; button hover */
   --color-slate-blue: #4E6373;
   --color-slate-blue-light: #596E79;
   --color-light-river: #7A9595;
@@ -81,7 +83,7 @@ Use it to make something cool, have fun, and share what you've learned.
 }
 
 html {
-  font-size: 16px;
+  font-size: 100%; /* respect the visitor's browser font-size setting */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -146,15 +148,22 @@ p {
 }
 
 a {
-  color: var(--color-teal);
+  color: var(--color-slate-blue);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover,
 a:focus {
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   text-decoration: underline;
+}
+
+/* Underline links in running text so they aren't identified by color alone */
+.entry-content a:not(.button):not(.wp-block-button__link),
+.site-main p a:not(.button) {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 /* ==========================================================================
@@ -351,7 +360,7 @@ button.menu-toggle,
 
 button.menu-toggle:hover,
 .main-navigation button.menu-toggle:hover {
-  background-color: #B84E30 !important;
+  background-color: var(--color-terracotta-dark) !important;
 }
 
 /* Hide hamburger on desktop/large screens */
@@ -432,11 +441,11 @@ button.menu-toggle:hover,
   margin-bottom: var(--spacing-xs);
 }
 
-.footer-widget a {
+.site-footer a {
   color: var(--color-beige);
 }
 
-.footer-widget a:hover {
+.site-footer a:hover {
   color: var(--color-white);
 }
 
@@ -445,6 +454,11 @@ button.menu-toggle:hover,
   padding-top: var(--spacing-md);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 0.875rem;
+}
+
+.site-info a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 /* ==========================================================================
@@ -457,7 +471,7 @@ input[type="submit"],
 button[type="submit"] {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-md);
-  background-color: var(--color-terracotta);
+  background-color: var(--color-terracotta-strong);
   color: var(--color-white);
   border: none;
   border-radius: var(--radius-sm);
@@ -472,7 +486,7 @@ button[type="submit"] {
 .wp-block-button__link:hover,
 input[type="submit"]:hover,
 button[type="submit"]:hover {
-  background-color: #B84E30;
+  background-color: var(--color-terracotta-dark);
   color: var(--color-white);
   text-decoration: none;
   transform: translateY(-2px);
@@ -599,7 +613,7 @@ button[type="submit"]:hover {
 
 .event-date {
   display: inline-block;
-  background-color: var(--color-terracotta);
+  background-color: var(--color-terracotta-strong);
   color: var(--color-white);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);
@@ -931,11 +945,138 @@ label {
   position: relative;
 }
 
-.hero-split-image img {
-  width: 100%;
-  height: auto;
+/* Hero Photo Carousel (aspect-ratio is set inline from the first photo) */
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  background-color: var(--color-gray-light);
+}
+
+.hero-carousel:focus-visible {
+  outline: 3px solid var(--color-slate-blue);
+  outline-offset: 3px;
+}
+
+.hero-carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero-carousel-slide.is-active {
+  opacity: 1;
+}
+
+.hero-carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-slate-blue);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.hero-carousel-prev {
+  left: var(--spacing-sm);
+}
+
+.hero-carousel-next {
+  right: var(--spacing-sm);
+}
+
+.hero-carousel-arrow:hover,
+.hero-carousel-arrow:focus-visible {
+  background-color: var(--color-white);
+  color: var(--color-terracotta-dark);
+}
+
+.hero-carousel-arrow:focus-visible,
+.hero-carousel-dot:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.hero-carousel-arrow svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-carousel-dots {
+  position: absolute;
+  bottom: var(--spacing-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 2px;
+  padding: 2px 6px;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 24px tap target around a small visible dot */
+.hero-carousel-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.hero-carousel-dot::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.55);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero-carousel-dot:hover::before {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-carousel-dot[aria-current="true"]::before {
+  background-color: var(--color-white);
+  transform: scale(1.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-slide,
+  .hero-carousel-dot::before {
+    transition: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1060,7 +1201,7 @@ label {
 .card-link {
   display: inline-flex;
   align-items: center;
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   font-weight: 600;
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -1343,11 +1484,11 @@ label {
   font-weight: 600;
   border-radius: 100px;
   background-color: var(--color-beige);
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
 }
 
 .badge-primary {
-  background-color: var(--color-terracotta);
+  background-color: var(--color-terracotta-strong);
   color: var(--color-white);
 }
 
@@ -1520,7 +1661,7 @@ label {
 .main-navigation .menu-item-donate a:hover,
 .main-navigation .menu-item-donate a:focus,
 .main-navigation .menu-item-donate.current-menu-item > a {
-  background-color: var(--color-terracotta);
+  background-color: var(--color-terracotta-strong);
   color: var(--color-white);
   text-shadow: none;
   box-shadow: var(--shadow-sm);
@@ -1589,7 +1730,7 @@ label {
 }
 
 .cafe-feature-title {
-  color: var(--color-olive-green);
+  color: var(--color-slate-blue);
   font-size: 1.5rem;
   margin-bottom: var(--spacing-sm);
   display: flex;
@@ -1936,7 +2077,7 @@ label {
    ========================================================================== */
 
 .donate-banner {
-  background: linear-gradient(135deg, var(--color-terracotta) 0%, #B84E30 100%);
+  background: linear-gradient(135deg, var(--color-terracotta-strong) 0%, var(--color-terracotta-dark) 100%);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   text-align: center;
@@ -1953,14 +2094,14 @@ label {
   font-size: 1.15rem;
   line-height: 1.7;
   font-weight: 500;
-  color: var(--color-beige);
+  color: var(--color-white);
   max-width: 520px;
   margin: 0 auto var(--spacing-md);
 }
 
 .donate-banner .donate-banner-button {
   background-color: var(--color-white);
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   font-size: 1.1rem;
   padding: var(--spacing-xs) var(--spacing-lg);
 }
@@ -1968,7 +2109,18 @@ label {
 .donate-banner .donate-banner-button:hover,
 .donate-banner .donate-banner-button:focus {
   background-color: var(--color-beige);
-  color: #B84E30;
+  color: var(--color-terracotta-dark);
+}
+
+/* Links inside slate-blue sections (About page callouts) */
+.mission-statement a:not(.button),
+.who-we-serve a:not(.button) {
+  color: var(--color-beige);
+}
+
+.mission-statement a:not(.button):hover,
+.who-we-serve a:not(.button):hover {
+  color: var(--color-white);
 }
 
 /* ==========================================================================
@@ -2048,7 +2200,7 @@ label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   font-weight: 600;
   font-size: 0.95rem;
   margin-top: auto;
@@ -2138,7 +2290,7 @@ label {
 .member-name {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
   margin: 0 0 0.25rem 0;
 }
 

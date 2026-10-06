@@ -120,6 +120,11 @@ function ramcafe_scripts() {
     // Enqueue custom JavaScript for navigation
     wp_enqueue_script( 'ramcafe-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version, true );
 
+    // Enqueue the hero photo carousel on the homepage
+    if ( is_front_page() ) {
+        wp_enqueue_script( 'ramcafe-hero-carousel', get_template_directory_uri() . '/js/hero-carousel.js', array(), $theme_version, true );
+    }
+
     // Enqueue comment reply script on singular posts/pages with comments open
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -352,6 +357,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Include About page meta boxes for feature images
  */
 require get_template_directory() . '/inc/about-page-meta-boxes.php';
+
+/**
+ * Include the homepage photo carousel meta box
+ */
+require get_template_directory() . '/inc/front-page-carousel.php';
 
 /**
  * Security: Remove WordPress version from head

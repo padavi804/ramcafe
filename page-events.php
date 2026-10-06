@@ -45,7 +45,7 @@ get_header();
                         <div class="meeting-details" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-md);">
 
                             <div class="meeting-detail">
-                                <h3 style="color: var(--color-olive-green); font-size: 1.25rem;">
+                                <h3 style="color: var(--color-slate-blue); font-size: 1.25rem;">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="vertical-align: middle; margin-right: 8px;">
                                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                         <line x1="16" y1="2" x2="16" y2="6"></line>
@@ -59,7 +59,7 @@ get_header();
                             </div>
 
                             <div class="meeting-detail">
-                                <h3 style="color: var(--color-olive-green); font-size: 1.25rem;">
+                                <h3 style="color: var(--color-slate-blue); font-size: 1.25rem;">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="vertical-align: middle; margin-right: 8px;">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                         <circle cx="12" cy="10" r="3"></circle>
@@ -72,7 +72,7 @@ get_header();
                             </div>
 
                             <div class="meeting-detail">
-                                <h3 style="color: var(--color-olive-green); font-size: 1.25rem;">
+                                <h3 style="color: var(--color-slate-blue); font-size: 1.25rem;">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="vertical-align: middle; margin-right: 8px;">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="12" cy="7" r="4"></circle>
@@ -163,8 +163,8 @@ get_header();
                     <?php endif; ?>
 
                     <!-- Contact Section -->
-                    <section class="events-contact" style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background-color: var(--color-olive-green); color: var(--color-white); border-radius: var(--radius-lg); text-align: center;">
-                        <h2 style="color: var(--color-white);">Questions About Our Events?</h2>
+                    <section class="events-contact" style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background-color: var(--color-slate-blue); color: var(--color-white); border-radius: var(--radius-lg); text-align: center;">
+                        <h2 style="color: var(--color-beige);">Questions About Our Events?</h2>
                         <p style="font-size: 1.125rem;">We'd love to hear from you!</p>
 
                         <?php
@@ -187,7 +187,7 @@ get_header();
                         ?>
 
                         <p style="margin-top: var(--spacing-md);">
-                            <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button" style="background-color: var(--color-terracotta);">Contact Us</a>
+                            <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button">Contact Us</a>
                         </p>
                     </section>
 

@@ -145,7 +145,7 @@ get_header();
                         <div class="resource-grid">
 
                             <a href="https://www.dementiadiscussions.net/" class="resource-card" target="_blank" rel="noopener noreferrer">
-                                <span class="badge resource-badge" style="background-color: var(--color-olive-green); color: var(--color-white);"><?php esc_html_e( 'Podcast', 'ramcafe' ); ?></span>
+                                <span class="badge badge-secondary resource-badge"><?php esc_html_e( 'Podcast', 'ramcafe' ); ?></span>
                                 <h3 class="resource-card-title"><?php esc_html_e( 'Dementia Discussions Podcast', 'ramcafe' ); ?></h3>
                                 <p class="resource-card-description"><?php esc_html_e( 'Conversations and insights about living with dementia, featuring expert interviews and personal stories.', 'ramcafe' ); ?></p>
                                 <span class="resource-card-link">
@@ -155,7 +155,7 @@ get_header();
                             </a>
 
                             <a href="https://www.youtube.com/playlist?list=PLVl8vTLjje8E8wKXh4PlNeUa9A-9lc88Z" class="resource-card" target="_blank" rel="noopener noreferrer">
-                                <span class="badge resource-badge" style="background-color: var(--color-olive-green); color: var(--color-white);"><?php esc_html_e( 'Video', 'ramcafe' ); ?></span>
+                                <span class="badge badge-secondary resource-badge"><?php esc_html_e( 'Video', 'ramcafe' ); ?></span>
                                 <h3 class="resource-card-title"><?php esc_html_e( 'Dementia Care Partner Podcast', 'ramcafe' ); ?></h3>
                                 <p class="resource-card-description"><?php esc_html_e( 'Video series dedicated to supporting dementia care partners with practical advice and encouragement.', 'ramcafe' ); ?></p>
                                 <span class="resource-card-link">

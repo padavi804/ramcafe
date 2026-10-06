@@ -43,9 +43,57 @@ get_header();
                     </div>
                 </div>
 
-                <?php if ( has_post_thumbnail() ) : ?>
+                <?php
+                $carousel_ids = ramcafe_get_carousel_image_ids( get_the_ID() );
+
+                if ( $carousel_ids ) :
+                    $slide_count = count( $carousel_ids );
+
+                    // Every slide takes the shape of the first photo so the layout doesn't jump
+                    $first_image = wp_get_attachment_image_src( $carousel_ids[0], 'full' );
+                    $aspect      = ( $first_image && $first_image[1] && $first_image[2] ) ? $first_image[1] . ' / ' . $first_image[2] : '4 / 3';
+                    ?>
                     <div class="hero-split-image">
-                        <?php the_post_thumbnail( 'full' ); ?>
+                        <div class="hero-carousel" style="aspect-ratio: <?php echo esc_attr( $aspect ); ?>;"
+                            <?php if ( $slide_count > 1 ) : ?>
+                                role="region" aria-roledescription="carousel" aria-label="<?php esc_attr_e( 'Memory Café photos', 'ramcafe' ); ?>" tabindex="0"
+                            <?php endif; ?>>
+
+                            <?php foreach ( $carousel_ids as $index => $image_id ) : ?>
+                                <div class="hero-carousel-slide<?php echo 0 === $index ? ' is-active' : ''; ?>"
+                                    <?php if ( $slide_count > 1 ) : ?>
+                                        role="group" aria-roledescription="slide"
+                                        aria-label="<?php echo esc_attr( sprintf( __( '%1$d of %2$d', 'ramcafe' ), $index + 1, $slide_count ) ); ?>"
+                                        <?php echo 0 === $index ? '' : 'aria-hidden="true"'; ?>
+                                    <?php endif; ?>>
+                                    <?php
+                                    echo wp_get_attachment_image(
+                                        $image_id,
+                                        'full',
+                                        false,
+                                        array( 'loading' => 0 === $index ? 'eager' : 'lazy' )
+                                    );
+                                    ?>
+                                </div>
+                            <?php endforeach; ?>
+
+                            <?php if ( $slide_count > 1 ) : ?>
+                                <button type="button" class="hero-carousel-arrow hero-carousel-prev" aria-label="<?php esc_attr_e( 'Previous photo', 'ramcafe' ); ?>">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" /></svg>
+                                </button>
+                                <button type="button" class="hero-carousel-arrow hero-carousel-next" aria-label="<?php esc_attr_e( 'Next photo', 'ramcafe' ); ?>">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" /></svg>
+                                </button>
+
+                                <div class="hero-carousel-dots">
+                                    <?php for ( $i = 0; $i < $slide_count; $i++ ) : ?>
+                                        <button type="button" class="hero-carousel-dot"
+                                            aria-label="<?php echo esc_attr( sprintf( __( 'Show photo %d', 'ramcafe' ), $i + 1 ) ); ?>"
+                                            <?php echo 0 === $i ? 'aria-current="true"' : ''; ?>></button>
+                                    <?php endfor; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 <?php endif; ?>
             </div>
