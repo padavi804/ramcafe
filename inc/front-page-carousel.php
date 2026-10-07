@@ -42,6 +42,35 @@ function ramcafe_get_carousel_image_ids( $post_id ) {
 }
 
 /**
+ * Clean a comma-separated list of attachment IDs
+ *
+ * @param string $value Raw value, e.g. "12,34,56".
+ * @return string Sanitized value with only positive integers.
+ */
+function ramcafe_sanitize_carousel_ids( $value ) {
+    return implode( ',', array_filter( array_map( 'absint', explode( ',', (string) $value ) ) ) );
+}
+
+/**
+ * Register the carousel meta field so the Block Editor can save it.
+ * Without this, picking photos doesn't mark the page as changed and
+ * clicking Update never sends them.
+ */
+function ramcafe_register_carousel_meta() {
+    register_post_meta( 'page', 'ramcafe_carousel_images', array(
+        'type'              => 'string',
+        'description'       => 'Comma-separated attachment IDs for the homepage carousel',
+        'single'            => true,
+        'show_in_rest'      => true,
+        'sanitize_callback' => 'ramcafe_sanitize_carousel_ids',
+        'auth_callback'     => function() {
+            return current_user_can( 'edit_pages' );
+        }
+    ) );
+}
+add_action( 'init', 'ramcafe_register_carousel_meta' );
+
+/**
  * Add the carousel meta box, only on the page set as the homepage
  */
 function ramcafe_add_carousel_meta_box( $post_type, $post ) {
@@ -49,8 +78,10 @@ function ramcafe_add_carousel_meta_box( $post_type, $post ) {
         return;
     }
 
+    // The box ID must differ from the hidden input's ID, since WordPress
+    // gives the box's wrapper this ID and jQuery would grab the wrapper instead
     add_meta_box(
-        'ramcafe_carousel_images',
+        'ramcafe_homepage_carousel',
         'Homepage Photo Carousel',
         'ramcafe_carousel_meta_box_callback',
         'page',
@@ -140,12 +171,22 @@ function ramcafe_carousel_meta_box_callback( $post ) {
         var $input = $('#ramcafe_carousel_images');
         var $list = $('#ramcafe_carousel_thumbs');
 
-        // Write the current thumbnail order back to the hidden field
+        // Write the current thumbnail order back to the hidden field, and to
+        // the Block Editor so it enables Update and saves the change
         function syncIds() {
             var ids = $list.children('li').map(function() {
                 return $(this).data('id');
-            }).get();
-            $input.val(ids.join(','));
+            }).get().join(',');
+
+            $input.val(ids);
+
+            if (typeof wp !== 'undefined' && wp.data && wp.data.dispatch('core/editor')) {
+                wp.data.dispatch('core/editor').editPost({
+                    meta: {
+                        ramcafe_carousel_images: ids
+                    }
+                });
+            }
         }
 
         $list.sortable({
@@ -218,10 +259,10 @@ function ramcafe_save_carousel_meta_box( $post_id ) {
         return;
     }
 
-    $ids = array_filter( array_map( 'absint', explode( ',', sanitize_text_field( wp_unslash( $_POST['ramcafe_carousel_images'] ) ) ) ) );
+    $ids = ramcafe_sanitize_carousel_ids( wp_unslash( $_POST['ramcafe_carousel_images'] ) );
 
     if ( $ids ) {
-        update_post_meta( $post_id, 'ramcafe_carousel_images', implode( ',', $ids ) );
+        update_post_meta( $post_id, 'ramcafe_carousel_images', $ids );
     } else {
         delete_post_meta( $post_id, 'ramcafe_carousel_images' );
     }
