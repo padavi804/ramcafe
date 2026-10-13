@@ -5,7 +5,8 @@
  * Displays the board of directors as a grid of member cards.
  * Member data is managed via WordPress Custom Fields on this page:
  *   member_N_name, member_N_title, member_N_bio, member_N_image (attachment ID)
- * for N = 1 through 9.
+ * for N = 1 through 9. Slots without a member_N_name are skipped, so removing
+ * a member only requires deleting their fields.
  *
  * @package RAMCafe
  * @since 1.2.0
@@ -25,18 +26,18 @@ get_header();
 
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                <header class="entry-header" style="text-align: center; margin-bottom: var(--spacing-lg);">
+                <header class="entry-header leadership-header">
                     <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
                     <?php if ( get_the_content() ) : ?>
-                        <div style="max-width: var(--container-narrow); margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--color-gray-dark); margin-top: var(--spacing-sm);">
+                        <div class="leadership-intro">
                             <?php the_content(); ?>
                         </div>
                     <?php endif; ?>
                 </header>
 
                 <!-- Board Member Grid -->
-                <section class="member-grid-section" style="margin-bottom: var(--spacing-xl);">
+                <section class="member-grid-section">
                     <div class="member-grid">
 
                         <?php
@@ -58,7 +59,11 @@ get_header();
                             $bio      = get_post_meta( $page_id, "member_{$i}_bio", true );
                             $image_id = get_post_meta( $page_id, "member_{$i}_image", true );
 
-                            $name  = $name  ? esc_html( $name )  : "Board Member {$i}";
+                            if ( ! $name ) {
+                                continue;
+                            }
+
+                            $name  = esc_html( $name );
                             $title = $title ? esc_html( $title ) : esc_html( $default_titles[ $i ] );
                             $bio   = $bio   ? wp_kses_post( $bio ) : '';
 
@@ -99,12 +104,12 @@ get_header();
                 </section>
 
                 <!-- CTA Section -->
-                <section style="background-color: var(--color-beige); padding: var(--spacing-lg); border-radius: var(--radius-lg); text-align: center; margin-bottom: var(--spacing-lg);">
-                    <h2 style="color: var(--color-terracotta); margin-top: 0;">Get in Touch</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: var(--spacing-md); font-weight: 500; line-height: 1.8;">
+                <section class="leadership-contact">
+                    <h2 class="leadership-contact-title">Get in Touch</h2>
+                    <p class="leadership-contact-text">
                         Have questions for our leadership team? We'd love to hear from you.
                     </p>
-                    <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+                    <div class="leadership-contact-buttons">
                         <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button">Contact Us</a>
                         <a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="button button-secondary">About Us</a>
                     </div>

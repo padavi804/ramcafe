@@ -4,7 +4,7 @@ Theme URI: https://riversareamemorycafe.org
 Author: Rivers Area Memory Café
 Author URI: https://riversareamemorycafe.org
 Description: A warm, community-focused WordPress theme for Rivers Area Memory Café featuring nature-inspired design with custom event management capabilities.
-Version: 1.2.6
+Version: 1.2.7
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -100,9 +100,9 @@ body {
     #F5EBD9 15%,
     #F8F4EE 25%,
     #F5EBD9 35%,
-    var(--color-beige) 45%,
-    #D4C9B8 55%,
-    var(--color-light-river) 82%,
+    var(--color-beige) 76%,  /* stay light wherever text usually sits; */
+    #D4C9B8 85%,             /* blue/slate kept to the bottom-right corner */
+    var(--color-light-river) 95%,
     var(--color-slate-blue) 100%);
   background-attachment: fixed;
   min-height: 100vh;
@@ -212,12 +212,14 @@ a:focus {
 }
 
 /* Frosted-glass blur with a soft bottom fade, on a pseudo-element so the
-   mask never fades the menu content itself (e.g. the Donate pill). */
+   mask never fades the menu content itself (e.g. the Donate pill).
+   The beige fill keeps menu text readable over content scrolling beneath. */
 .site-header::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0 0 -1.5rem 0; /* extend below the menu so the fade starts under it */
   z-index: -1;
+  background-color: rgba(245, 235, 217, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
@@ -911,7 +913,8 @@ label {
   margin: 0 auto;
   padding: 0 var(--spacing-sm);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* minmax(0, …) keeps wide content (e.g. a large photo) from stretching a column */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-xl);
   align-items: start;
 }
@@ -1878,13 +1881,13 @@ label {
 }
 
 .community-tagline .highlight {
-  color: var(--color-terracotta);
+  color: var(--color-terracotta-dark);
 }
 
 .community-subtitle {
   font-family: var(--font-secondary);
   font-size: 1.25rem;
-  color: var(--color-slate-blue);
+  color: var(--color-gray-dark);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -2018,7 +2021,7 @@ label {
 .donate-secure-note {
   text-align: center;
   font-size: 0.9rem;
-  color: var(--color-gray-medium);
+  color: var(--color-gray-dark);
   margin-top: var(--spacing-sm);
 }
 
@@ -2241,13 +2244,33 @@ label {
    LEADERSHIP / BOARD PAGE
    ========================================================================== */
 
+.leadership-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.leadership-intro {
+  max-width: var(--container-narrow);
+  margin: var(--spacing-sm) auto 0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--color-gray-dark);
+}
+
+.member-grid-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Flex rather than grid so a partial last row (e.g. 8 members) is centered. */
 .member-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-md);
 }
 
 .member-card {
+  flex: 0 1 calc((100% - 2 * var(--spacing-md)) / 3);
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
@@ -2308,15 +2331,44 @@ label {
   margin: 0;
 }
 
+/* "Get in Touch" box at the bottom of the page */
+.leadership-contact {
+  background-color: var(--color-beige);
+  border: 2px solid var(--color-slate-blue); /* thickness, style, color */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.leadership-contact-title {
+  color: var(--color-terracotta);
+  margin-top: 0;
+}
+
+.leadership-contact-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+}
+
+.leadership-contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
 @media screen and (max-width: 900px) {
-  .member-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .member-card {
+    flex-basis: calc((100% - var(--spacing-md)) / 2);
   }
 }
 
 @media screen and (max-width: 600px) {
-  .member-grid {
-    grid-template-columns: 1fr;
+  .member-card {
+    flex-basis: 100%;
   }
 }
 
