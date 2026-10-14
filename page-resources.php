@@ -22,25 +22,25 @@ get_header();
 
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                <header class="entry-header" style="text-align: center; margin-bottom: var(--spacing-lg);">
+                <header class="entry-header resources-header">
                     <?php the_title( '<h1 class="entry-title screen-reader-text">', '</h1>' ); ?>
 
                     <?php if ( get_the_content() ) : ?>
-                        <div style="max-width: var(--container-narrow); margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--color-gray-dark);">
+                        <div class="resources-intro">
                             <?php the_content(); ?>
                         </div>
                     <?php endif; ?>
                 </header>
 
                 <!-- Helpline Banner -->
-                <section class="resource-helpline" style="background-color: var(--color-slate-blue); padding: var(--spacing-md) var(--spacing-lg); border-radius: var(--radius-lg); margin-bottom: var(--spacing-xl); text-align: center;">
-                    <h2 style="color: var(--color-beige); font-size: 1.5rem; margin: 0 0 var(--spacing-xs) 0;">
+                <section class="resource-helpline">
+                    <h2 class="resource-helpline-title">
                         <?php esc_html_e( "Alzheimer's Association 24/7 Helpline", 'ramcafe' ); ?>
                     </h2>
-                    <a href="tel:8002723900" style="font-size: 2rem; color: var(--color-white); font-weight: 700; text-decoration: none;">
+                    <a href="tel:8002723900" class="resource-helpline-phone">
                         800-272-3900
                     </a>
-                    <p style="color: rgba(255, 255, 255, 0.85); margin: var(--spacing-xs) 0 0 0; font-size: 1rem;">
+                    <p class="resource-helpline-note">
                         <?php esc_html_e( 'Free, confidential support available around the clock', 'ramcafe' ); ?>
                     </p>
                 </section>
@@ -48,9 +48,9 @@ get_header();
                 <div class="entry-content">
 
                     <!-- Local & State Organizations -->
-                    <section class="resource-category" style="margin-bottom: var(--spacing-xl);">
+                    <section class="resource-category">
                         <h2 class="resource-category-title"><?php esc_html_e( 'Local & State Organizations', 'ramcafe' ); ?></h2>
-                        <hr class="section-divider" style="margin: 0 0 var(--spacing-lg) 0;">
+                        <hr class="section-divider">
 
                         <div class="resource-grid">
 
@@ -98,9 +98,9 @@ get_header();
                     </section>
 
                     <!-- Guides & Planning -->
-                    <section class="resource-category" style="margin-bottom: var(--spacing-xl);">
+                    <section class="resource-category">
                         <h2 class="resource-category-title"><?php esc_html_e( 'Guides & Planning', 'ramcafe' ); ?></h2>
-                        <hr class="section-divider" style="margin: 0 0 var(--spacing-lg) 0;">
+                        <hr class="section-divider">
 
                         <div class="resource-grid">
 
@@ -138,9 +138,9 @@ get_header();
                     </section>
 
                     <!-- Podcasts & Media -->
-                    <section class="resource-category" style="margin-bottom: var(--spacing-xl);">
+                    <section class="resource-category">
                         <h2 class="resource-category-title"><?php esc_html_e( 'Podcasts & Media', 'ramcafe' ); ?></h2>
-                        <hr class="section-divider" style="margin: 0 0 var(--spacing-lg) 0;">
+                        <hr class="section-divider">
 
                         <div class="resource-grid">
 
@@ -168,12 +168,12 @@ get_header();
                     </section>
 
                     <!-- CTA Section -->
-                    <section class="get-involved" style="background-color: var(--color-beige); padding: var(--spacing-lg); border-radius: var(--radius-lg); text-align: center; margin-bottom: var(--spacing-lg);">
-                        <h2 style="color: var(--color-terracotta); margin-top: 0;"><?php esc_html_e( 'Need More Help?', 'ramcafe' ); ?></h2>
-                        <p style="font-size: 1.2rem; margin-bottom: var(--spacing-md); font-weight: 500; line-height: 1.8;">
+                    <section class="cta-box">
+                        <h2 class="cta-box-title"><?php esc_html_e( 'Need More Help?', 'ramcafe' ); ?></h2>
+                        <p class="cta-box-text">
                             <?php esc_html_e( "If you're looking for additional resources or have questions, please don't hesitate to reach out. We're here to help.", 'ramcafe' ); ?>
                         </p>
-                        <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+                        <div class="cta-box-buttons">
                             <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button"><?php esc_html_e( 'Contact Us', 'ramcafe' ); ?></a>
                             <a href="<?php echo esc_url( home_url( '/events' ) ); ?>" class="button button-secondary"><?php esc_html_e( 'View Events', 'ramcafe' ); ?></a>
                         </div>

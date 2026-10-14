@@ -104,12 +104,12 @@ get_header();
                 </section>
 
                 <!-- CTA Section -->
-                <section class="leadership-contact">
-                    <h2 class="leadership-contact-title">Get in Touch</h2>
-                    <p class="leadership-contact-text">
+                <section class="cta-box">
+                    <h2 class="cta-box-title">Get in Touch</h2>
+                    <p class="cta-box-text">
                         Have questions for our leadership team? We'd love to hear from you.
                     </p>
-                    <div class="leadership-contact-buttons">
+                    <div class="cta-box-buttons">
                         <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="button">Contact Us</a>
                         <a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="button button-secondary">About Us</a>
                     </div>
