@@ -133,6 +133,24 @@ function ramcafe_scripts() {
 add_action( 'wp_enqueue_scripts', 'ramcafe_scripts' );
 
 /**
+ * Output the Google Analytics 4 tag (gtag.js) in the <head>
+ */
+function ramcafe_google_analytics() {
+    ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBF1VXTQSK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VBF1VXTQSK');
+    </script>
+    <?php
+}
+add_action( 'wp_head', 'ramcafe_google_analytics', 1 );
+
+/**
  * Register Widget Areas (Sidebars)
  *
  * Staff can add widgets to these areas in Appearance > Widgets
